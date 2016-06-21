@@ -11,6 +11,7 @@
   "dependencies": {
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
+    "griddle-react": "^0.5.1",
     "jquery": "^3.0.0",
     "material-ui": "^0.14.4",
     "react": "^15.1.0",
