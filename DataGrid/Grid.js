@@ -2,6 +2,7 @@ import React from 'react';
 import Griddle from 'griddle-react';
 
 import Configuration from './Configuration';
+import SettingFilterGrid from './SettingFilterGrid';
 
 
 class Grid extends React.Component{
@@ -22,7 +23,12 @@ class Grid extends React.Component{
 					columnMetadata={config.getColumnMetaData}
 					columns={config.getColumnName}
 					showFilter={true}
- 					showSettings={true}/>
+ 					showSettings={true}
+ 					settingsText="Ajustar Columnas"
+ 					maxRowsText="Ajustar Cantidad De Filas"
+ 					useGriddleStyles={false}
+ 					useCustomFilterComponent={true}
+ 					customFilterComponent={SettingFilterGrid}/>
 			</div>
 		);
 

@@ -2,34 +2,21 @@ import React from 'react';
 import { render } from 'react-dom';
 import { ajax } from 'jquery';
 import Grid from './DataGrid/Grid';
+import Json from './json';
 
 
 class App extends React.Component{
 
 	constructor(props) {
 		super(props);
-		this.state = {data: []};
+		this.state = {data: [], filter: {}};
 	}
 
 	/**
 	 * data from service rest
 	 */
 	componentWillMount() {
-		ajax({
-			url: "http://localhost:9090/Aspadevs/api/clientes/cliente/listar",
-			dataType: "json",	
-			headers: {
-			"Authorization": "Basic " + btoa('admin' + ":" + '123')
-			},
-			method: 'get',
-			success: (response)=> {
-				console.log('response', response);
-				this.setState({data: response.data})
-			},
-			error: (error) => {
-				console.log('error', error);
-			}
-		})
+		this.setState({data: Json.data, filter: Json.filters})
 	}
 
 	render() {
@@ -39,20 +26,25 @@ class App extends React.Component{
 			"locked": true,
 			"visible": false 
 		}, {
+			"columnName": "actions",
+			"locked": true,
+			"visible": false 
+		}, {
 			"columnName": "nit",
 			"order": 1,
 			"displayName": "Nit",
-			"filter": "text"
+			"filter": "date"
 		}, {
 			"columnName": "nombre",
 			"order": 2,
 			"displayName": "Nombre",
-			"filter": "date"
+			"filter": "select",
+			"dataFilter": this.state.filter
 		}, {
 			"columnName": "email",
 			"order": 3,
 			"displayName": "Email",
-			"filter": "select"
+			"filter": "text"
 		}, {
 			"columnName": "nombreurbanizacion",
 			"order": 4,

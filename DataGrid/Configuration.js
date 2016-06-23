@@ -3,7 +3,8 @@
  * de la Grid
  */
 
-import HeaderGrid from './HeaderGrid';
+import * as ColumnFilterGrid from './ColumnFilterGrid';
+
 
 class Configuration {
 
@@ -33,6 +34,10 @@ class Configuration {
 			// normaliza los columns meta data
 			if(typeof element.filter !== 'undefined') {
 				element.customHeaderComponent = this.getComponentFilterHeader(element.filter);
+				element.customHeaderComponentProps = {
+					dataFilter: element.dataFilter,
+					visible: false
+				};
 			}
 
 			this.columnsMetaData.push(element);
@@ -55,16 +60,16 @@ class Configuration {
 
 		switch (typeFilter) {
 			case "text":
-				componentFilter = HeaderGrid;
+				componentFilter = ColumnFilterGrid.ComponentText;
 			break;
 			case "date":
-				componentFilter = HeaderGrid;
+				componentFilter = ColumnFilterGrid.ComponentDate;
 			break;
 			case "select":
-				componentFilter = HeaderGrid;
+				componentFilter = ColumnFilterGrid.ComponentSelect;
 			break;
 			case "number":
-				componentFilter = HeaderGrid;
+				componentFilter = ColumnFilterGrid.ComponentNumber;
 			break;
 		}
 
