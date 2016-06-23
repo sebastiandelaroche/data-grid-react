@@ -47,7 +47,9 @@ var Configuration = function () {
 
 			this.columns.forEach(function (element) {
 				// normaliza los columns name
-				_this.columnsName.push(element.columnName);
+				if (typeof element.visible === 'undefined' || element.visible === true) {
+					_this.columnsName.push(element.columnName);
+				}
 
 				// normaliza los columns meta data
 				if (typeof element.filter !== 'undefined') {
@@ -323,6 +325,10 @@ var App = function (_React$Component) {
 		value: function render() {
 
 			var columns = [{
+				"columnName": "id",
+				"locked": true,
+				"visible": false
+			}, {
 				"columnName": "nit",
 				"order": 1,
 				"displayName": "Nit",

@@ -35,6 +35,10 @@ class App extends React.Component{
 	render() {
 
 		const columns = [{
+			"columnName": "id",
+			"locked": true,
+			"visible": false 
+		}, {
 			"columnName": "nit",
 			"order": 1,
 			"displayName": "Nit",

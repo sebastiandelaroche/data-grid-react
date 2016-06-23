@@ -26,7 +26,9 @@ class Configuration {
 		
 		this.columns.forEach((element) => {
 			// normaliza los columns name
-			this.columnsName.push(element.columnName);
+			if(typeof element.visible === 'undefined' || element.visible === true) {
+				this.columnsName.push(element.columnName);
+			}
 
 			// normaliza los columns meta data
 			if(typeof element.filter !== 'undefined') {
