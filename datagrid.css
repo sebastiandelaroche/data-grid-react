@@ -1,0 +1,30 @@
+.aspa-tablegrid {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.aspa-tablegrid th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+ 
+.aspa-tablegrid tr:nth-child(even){
+	background-color: #f2f2f2
+}
+
+
+/**
+ *  styles componenets
+ */
+.aspa-show{
+	display: block;
+}
+
+.aspa-hide{
+	display: none;
+}
+
+.aspa-header-setting{
+	padding: 5px;
+}

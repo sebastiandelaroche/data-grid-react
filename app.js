@@ -20,11 +20,10 @@ class App extends React.Component{
 	}
 
 	render() {
-
 		const columns = [{
 			"columnName": "id",
 			"locked": true,
-			"visible": false 
+			"visible": false
 		}, {
 			"columnName": "actions",
 			"locked": true,
@@ -33,7 +32,7 @@ class App extends React.Component{
 			"columnName": "nit",
 			"order": 1,
 			"displayName": "Nit",
-			"filter": "date"
+			"filter": "text"
 		}, {
 			"columnName": "nombre",
 			"order": 2,
@@ -44,7 +43,7 @@ class App extends React.Component{
 			"columnName": "email",
 			"order": 3,
 			"displayName": "Email",
-			"filter": "text"
+			"filter": "date"
 		}, {
 			"columnName": "nombreurbanizacion",
 			"order": 4,
@@ -54,12 +53,13 @@ class App extends React.Component{
 
 		return (
 			<div>
-				<Grid 
-					data={this.state.data}
-					columns={columns}/>
+				<Grid data={this.state.data} columns={columns}/>
 			</div>
 		);
 	}
 }
+
+
+
 
 render(<App/>, document.getElementById('app'));

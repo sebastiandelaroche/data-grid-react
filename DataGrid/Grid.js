@@ -1,5 +1,11 @@
+/**
+ * Grid Aspa
+ */
+
+
 import React from 'react';
 import Griddle from 'griddle-react';
+
 
 import Configuration from './Configuration';
 import SettingFilterGrid from './SettingFilterGrid';
@@ -22,10 +28,13 @@ class Grid extends React.Component{
 					results={data}
 					columnMetadata={config.getColumnMetaData}
 					columns={config.getColumnName}
+					tableClassName="aspa-tablegrid"
 					showFilter={true}
  					showSettings={true}
+ 					
  					settingsText="Ajustar Columnas"
  					maxRowsText="Ajustar Cantidad De Filas"
+ 					
  					useGriddleStyles={false}
  					useCustomFilterComponent={true}
  					customFilterComponent={SettingFilterGrid}/>
@@ -36,5 +45,3 @@ class Grid extends React.Component{
 }
 
 export default Grid;
-
-

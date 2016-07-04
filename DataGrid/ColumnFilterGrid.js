@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-
+import Store from './store/store.js';
 
 /**
  * Componente que trata los filtros tipo text
@@ -16,7 +16,26 @@ import React from 'react';
  * @author ...
  * @since ...
  */
-export class ComponentText extends React.Component{
+export class ComponentText extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { show: false };
+    this.controlShowHideFilter = this.controlShowHideFilter.bind(this);
+  }
+
+  componentWillMount() {
+    Store.on('ControlShowFilterColumns', this.controlShowHideFilter);
+  }
+
+  componentWillUnmount() {
+    Store.removeListener('ControlShowFilterColumns', this.controlShowHideFilter);     
+  }
+
+  controlShowHideFilter(stateShow) {
+    this.setState({show: stateShow});
+  }
+
 
   textOnClick(e) {
     e.stopPropagation();
@@ -26,22 +45,36 @@ export class ComponentText extends React.Component{
     this.props.filterByColumn(e.target.value, this.props.columnName)
   }
 
+
+
 	render() {
 
-    let style = {};
-    style.display = this.props.visible ? "block": "none";
+    const {show} = this.state;
+    const {filter} = this.props;
+    let className = {};
+
+    className.showFilter = show ? "aspa-show": "aspa-hide";
+    const componentFilter = this.getComponentFilterHeader(filter);
 
 		return (
-      <span>
+      <div>
         <div>
           <strong>
             {this.props.displayName}
           </strong>
         </div>
-        <input type='text' style={style}
-          onChange={this.filterText.bind(this)}
-          onClick={this.textOnClick.bind(this)} />
-      </span>
+        <div className={className.showFilter}>
+
+          <componentFilter />
+
+
+          <input type='text' onChange={this.filterText.bind(this)}
+            onClick={this.textOnClick.bind(this)} />
+
+
+
+        </div>
+      </div>
     )
 	}
 
@@ -54,7 +87,7 @@ export class ComponentText extends React.Component{
  * @author ...
  * @since ...
  */
-export class ComponentDate extends React.Component{
+export class ComponentDate extends React.Component {
 
   textOnClick(e) {
     e.stopPropagation();
@@ -67,7 +100,7 @@ export class ComponentDate extends React.Component{
 	render() {
 
     let style = {};
-    style.display = this.props.visible ? "block": "none";
+    style.display = this.props.visible ? "aspa-show": "aspa-hide";
 
 		return (
       <span>
@@ -91,7 +124,7 @@ export class ComponentDate extends React.Component{
  * @author ...
  * @since ...
  */
-export class ComponentSelect extends React.Component{
+export class ComponentSelect extends React.Component {
 
   textOnClick(e) {
     e.stopPropagation();
@@ -108,7 +141,7 @@ export class ComponentSelect extends React.Component{
     })
 
     let style = {};
-    style.display = this.props.visible ? "block": "none";
+    style.display = this.props.visible ? "aspa-show": "aspa-hide";
 
 		return (
       <span>
@@ -147,7 +180,7 @@ export class ComponentNumber extends React.Component{
 	render() {
 
     let style = {};
-    style.display = this.props.visible ? "block": "none";
+    style.display = this.props.visible ? "aspa-show": "aspa-hide";
 
 		return (
       <span>
