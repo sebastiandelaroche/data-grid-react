@@ -28,7 +28,9 @@ class Grid extends React.Component{
 					results={data}
 					columnMetadata={config.getColumnMetaData}
 					columns={config.getColumnName}
-					tableClassName="aspa-tablegrid"
+
+					tableClassName="aspa-table table-hover table-mc-indigo"
+
 					showFilter={true}
  					showSettings={true}
  					
@@ -38,6 +40,7 @@ class Grid extends React.Component{
  					useGriddleStyles={false}
  					useCustomFilterComponent={true}
  					customFilterComponent={SettingFilterGrid}/>
+
 			</div>
 		);
 

@@ -5,6 +5,7 @@
 
 import * as ColumnFilterGrid from './ColumnFilterGrid';
 import FilterHeader from './components/FilterHeader';
+import ComponentColumn from './components/ComponentColumn';
 
 
 class Configuration {
@@ -35,6 +36,7 @@ class Configuration {
 			// normaliza los columns meta data
 			if(typeof element.filter !== 'undefined') {
 				element.customHeaderComponent = FilterHeader;
+				element.customComponent = ComponentColumn;
 				element.customHeaderComponentProps = {
 					typeFilter: element.filter,
 					dataFilter: element.dataFilter,
