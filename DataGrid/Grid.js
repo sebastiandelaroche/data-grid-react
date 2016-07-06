@@ -31,6 +31,9 @@ class Grid extends React.Component{
 
 					tableClassName="aspa-table table-hover table-mc-indigo"
 
+					sortAscendingComponent={<i className="material-icons md-18 aspa-sort">sort_by_alpha</i>}
+					sortDescendingComponent={<i className="material-icons md-18 md-dark md-inactive aspa-sort">sort_by_alpha</i>}
+
 					showFilter={true}
  					showSettings={true}
  					

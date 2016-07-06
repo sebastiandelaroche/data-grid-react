@@ -1,0 +1,11 @@
+.aspa-left { float: left; }
+.aspa-right { float: right; }
+
+.aspa-show{ display: block; }
+.aspa-hide{ display: none; }
+
+.aspa-cort-text{
+	text-overflow: inherit;
+	white-space: nowrap;
+	overflow: hidden;
+}

@@ -101,21 +101,19 @@ export default class FilterHeader extends React.Component{
 	render() {
 
     const {show} = this.state;
-    let className = {};
 
-    className.showFilter = show ? "aspa-show": "aspa-hide";
+    let className = {};
+    className.showFilter = show ? "aspa-show ": "aspa-hide";
 
 		return (
-      <div>
-        <div>
-          <strong>
-            {this.props.displayName}
-          </strong>
-        </div>
-        <div className={className.showFilter}> 
+      <span className="">
+        <span className={className.showFilter}> 
           {this.getComponentFilter()} 
-        </div>
-      </div>
+        </span>
+        <strong className="aspa-cort-text aspa-cursor-pointer">
+          {this.props.displayName}
+        </strong>
+      </span>
     )
 	}
 

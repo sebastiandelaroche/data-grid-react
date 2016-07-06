@@ -3,7 +3,6 @@
  * de la Grid
  */
 
-import * as ColumnFilterGrid from './ColumnFilterGrid';
 import FilterHeader from './components/FilterHeader';
 import ComponentColumn from './components/ComponentColumn';
 
