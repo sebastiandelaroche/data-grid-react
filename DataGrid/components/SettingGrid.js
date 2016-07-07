@@ -9,10 +9,16 @@
  */
 
 import React from 'react';
-import * as Actions from './actions/actions';
+import * as Actions from '../actions/actions';
+
+var configuration = {};
+
+export function setColumns (columns) {
+	configuration.columns = columns;
+}
 
 
-class SettingFilterGrid extends React.Component{
+export class ComponentSettingGrid extends React.Component{
 
 	/**
 	 * Se inicializa el componente
@@ -49,6 +55,12 @@ class SettingFilterGrid extends React.Component{
    */
 	render() {
 
+		let filter = configuration.columns.map((col) => {
+			if(typeof col.filter !== 'undefined' && col.filter === true) {
+				return (<span>{col.displayName}<input type="text"/></span>); 
+			}
+		});
+
 		const {show} = this.state;
 		let className = {};
 
@@ -62,14 +74,19 @@ class SettingFilterGrid extends React.Component{
 					<input type="checkbox" onClick={this.controlShowHideOptions} />
 				</label>
 				<div className={className.showOptions}>
+					
 					<button>importar desde excel</button>
 					<button>descargar platilla excel</button>
 					<button>enviar por correo</button>
+					<div className="aspa-container-setting-filter">
+						{filter}
+					</div>
+
 				</div>
+
+
 			</div>
 		);
 	}
 
 }
-
-export default SettingFilterGrid;

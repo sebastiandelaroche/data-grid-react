@@ -8,7 +8,7 @@ import Griddle from 'griddle-react';
 
 
 import Configuration from './Configuration';
-import SettingFilterGrid from './SettingFilterGrid';
+import * as SettingGrid from './components/SettingGrid';
 
 
 class Grid extends React.Component{
@@ -16,16 +16,18 @@ class Grid extends React.Component{
 	render() {
 
 		let {data, columns} = this.props;
+		
+		SettingGrid.setColumns(columns);
 
 		// Setea la informacion de las columnas
 		// con su meta data, para luego obtener
-		// la configuracion de la Grid
+		// la configuración de la Grid
 		let config = new Configuration(columns);
 
 		return (
-			<div>
 				<Griddle 
 					results={data}
+					
 					columnMetadata={config.getColumnMetaData}
 					columns={config.getColumnName}
 
@@ -36,15 +38,13 @@ class Grid extends React.Component{
 
 					showFilter={true}
  					showSettings={true}
+ 					useGriddleStyles={false}
+ 					useCustomFilterComponent={true}
  					
  					settingsText="Ajustar Columnas"
  					maxRowsText="Ajustar Cantidad De Filas"
  					
- 					useGriddleStyles={false}
- 					useCustomFilterComponent={true}
- 					customFilterComponent={SettingFilterGrid}/>
-
-			</div>
+ 					customFilterComponent={SettingGrid.ComponentSettingGrid}/>
 		);
 
 	}

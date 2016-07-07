@@ -26,7 +26,7 @@
 .aspa-table > tbody > tr > td,
 .aspa-table > tfoot > tr > td {
   text-align: left;
-  padding: 1.6rem;
+  padding: 1.0rem;
   vertical-align: top;
   border-top: 0;
   -webkit-transition: all 0.3s ease;
@@ -542,3 +542,7 @@
 
 .aspa-cursor-pointer{ cursor: pointer; }
 .aspa-sort{ position: relative; top: 3px; margin-left: 3px; }
+
+.aspa-container-setting-filter {
+  
+}

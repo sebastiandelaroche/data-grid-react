@@ -27,24 +27,18 @@ class Configuration {
 	init() {
 		
 		this.columns.forEach((element) => {
-			// normaliza los columns name
+			// normaliza los columnName
 			if(typeof element.visible === 'undefined' || element.visible === true) {
 				this.columnsName.push(element.columnName);
 			}
 
-			// normaliza los columns meta data
-			if(typeof element.filter !== 'undefined') {
-				element.customHeaderComponent = FilterHeader;
-				element.customComponent = ComponentColumn;
-				element.customHeaderComponentProps = {
-					typeFilter: element.filter,
-					dataFilter: element.dataFilter,
-					visible: false
-				};
-			}
+			// setea el component por columna de la row
+			element.customComponent = ComponentColumn;
+			// setea el component por columna del header
+			element.customHeaderComponent = FilterHeader;
 
 			this.columnsMetaData.push(element);
-
+		
 		})
 	
 	}

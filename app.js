@@ -20,35 +20,64 @@ class App extends React.Component{
 	}
 
 	render() {
+
 		const columns = [{
 			"columnName": "id",
 			"locked": true,
 			"visible": false
-		}, {
-			"columnName": "actions",
+		},{
+			"columnName": "idtipocliente",
 			"locked": true,
-			"visible": false 
+			"visible": false
 		}, {
 			"columnName": "nit",
-			"order": 1,
 			"displayName": "Nit",
-			"filter": "text"
+			"order": 1,
+			"visible": true,
+			"filter": true,
+			"typeFilter": "text" 
 		}, {
 			"columnName": "nombre",
-			"order": 2,
 			"displayName": "Nombre",
-			"filter": "select",
-			"dataFilter": this.state.filter
+			"order": 2,
+			"visible": true,
+			"filter": true,
+			"typeFilter": "text"
 		}, {
 			"columnName": "email",
-			"order": 3,
 			"displayName": "Email",
-			"filter": "date"
+			"order": 3,
+			"visible": true
 		}, {
 			"columnName": "nombreurbanizacion",
+			"displayName": "Nombre Urbanización",
 			"order": 4,
-			"displayName": "Nombre Urbanizacion",
-			"filter": "number"
+			"visible": true
+		}, {
+			"columnName": "direccion",
+			"displayName": "Dirección",
+			"order": 5,
+			"visible": true
+		}, {
+			"columnName": "movil",
+			"displayName": "Movil",
+			"order": 6,
+			"visible": true
+		}, {
+			"columnName": "telefono",
+			"displayName": "Teléfono",
+			"order": 7,
+			"visible": true
+		}, {
+			"columnName": "tipocliente",
+			"displayName": "Tipo Cliente",
+			"order": 8,
+			"visible": true
+		}, {
+			"columnName": "zona",
+			"displayName": "Zona",
+			"order": 9,
+			"visible": true
 		}];
 
 		return (
